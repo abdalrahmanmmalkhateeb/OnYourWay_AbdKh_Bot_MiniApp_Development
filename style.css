@@ -166,8 +166,20 @@ a:focus-visible {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.car-page .brand-options,
+.car-page .model-options {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.car-page .brand-options.long-options,
+.car-page .model-options.long-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .area-page .city-options .option-button,
-.area-page .area-options .option-button {
+.area-page .area-options .option-button,
+.car-page .brand-options .option-button,
+.car-page .model-options .option-button {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -309,14 +321,18 @@ a:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .area-page .area-options {
+  .area-page .area-options,
+  .car-page .brand-options,
+  .car-page .model-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 320px) {
   .area-page .city-options,
-  .area-page .area-options {
+  .area-page .area-options,
+  .car-page .brand-options,
+  .car-page .model-options {
     grid-template-columns: 1fr;
   }
 }

@@ -7,6 +7,7 @@ const carState = {
   year: "",
 };
 
+const longCarOptionLength = 14;
 const fallbackOption = "Other";
 
 const carElements = {
@@ -115,6 +116,7 @@ function renderBrands() {
     MiniApp.filterValues(brands, carElements.brandSearch.value),
     carElements.brandSearch.value,
   );
+  updateCarOptionDensity(carElements.brandList, matches);
   MiniApp.renderOptions(
     carElements.brandList,
     matches,
@@ -126,6 +128,7 @@ function renderBrands() {
 
 function renderModels() {
   if (!carState.brand) {
+    updateCarOptionDensity(carElements.modelList, []);
     carElements.modelList.replaceChildren();
     return;
   }
@@ -136,12 +139,20 @@ function renderModels() {
     MiniApp.filterValues(models, carElements.modelSearch.value),
     carElements.modelSearch.value,
   );
+  updateCarOptionDensity(carElements.modelList, matches);
   MiniApp.renderOptions(
     carElements.modelList,
     matches,
     carState.model,
     selectModel,
     "لا توجد موديلات مطابقة.",
+  );
+}
+
+function updateCarOptionDensity(container, values) {
+  container.classList.toggle(
+    "long-options",
+    values.some((value) => [...value].length > longCarOptionLength),
   );
 }
 
