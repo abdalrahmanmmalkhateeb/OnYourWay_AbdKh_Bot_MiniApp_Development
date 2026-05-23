@@ -6,6 +6,7 @@ const areaState = {
   area: "",
 };
 
+const longAreaOptionLength = 18;
 const areaCollator = new Intl.Collator("ar", { numeric: true });
 
 const areaElements = {
@@ -102,18 +103,27 @@ function renderCities() {
 
 function renderAreas() {
   if (!areaState.city) {
+    updateAreaOptionDensity([]);
     areaElements.areaList.replaceChildren();
     return;
   }
 
   const areas = [...areaState.areas[areaState.city]].sort((a, b) => areaCollator.compare(a, b));
   const matches = MiniApp.filterValues(areas, areaElements.areaSearch.value);
+  updateAreaOptionDensity(areas);
   MiniApp.renderOptions(
     areaElements.areaList,
     matches,
     areaState.area,
     selectArea,
     "لا توجد مناطق مطابقة.",
+  );
+}
+
+function updateAreaOptionDensity(areas) {
+  areaElements.areaList.classList.toggle(
+    "long-options",
+    areas.some((area) => [...area].length > longAreaOptionLength),
   );
 }
 

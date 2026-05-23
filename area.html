@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app-shell">
+  <main class="app-shell area-page">
     <header class="page-header">
       <a class="back-link" href="index.html">الرئيسية</a>
       <h1>اختيار المنطقة</h1>
@@ -20,13 +20,13 @@
       <div class="field-group">
         <label for="citySearch">المدينة</label>
         <input id="citySearch" type="search" autocomplete="off" placeholder="ابحث عن المدينة">
-        <div id="cityList" class="option-list" role="listbox" aria-label="نتائج المدن"></div>
+        <div id="cityList" class="option-list city-options" role="listbox" aria-label="نتائج المدن"></div>
       </div>
 
       <div class="field-group">
         <label for="areaSearch">المنطقة</label>
         <input id="areaSearch" type="search" autocomplete="off" placeholder="اختر المدينة أولاً" disabled>
-        <div id="areaList" class="option-list" role="listbox" aria-label="نتائج المناطق"></div>
+        <div id="areaList" class="option-list area-options" role="listbox" aria-label="نتائج المناطق"></div>
       </div>
 
       <section class="summary" aria-live="polite">
