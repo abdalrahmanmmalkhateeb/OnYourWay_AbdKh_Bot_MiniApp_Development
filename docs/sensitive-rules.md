@@ -19,6 +19,10 @@ These rules protect the current Mini App and bot integration contract.
 - Data file locations:
   - `data/cars.json`
   - `data/areas.json`
+- Selector layout classes:
+  - `car-page`, `brand-options`, `model-options`
+  - `area-page`, `city-options`, `area-options`
+  - `long-options`
 - Telegram SDK load order in selector pages.
 
 ## Security And Trust Boundary
@@ -32,6 +36,10 @@ The exact bot-side enforcement is outside this repository. [Unknown / Needs huma
 Changing `data/cars.json` or `data/areas.json` affects what the Mini App can submit. If the bot has its own allowlists or cached runtime state, users can select values that the bot rejects.
 
 Before publishing data changes, confirm whether the bot consumes mirrored files, hardcoded values, or deployed cached state. [Unknown / Needs human confirmation]
+
+## Layout Hooks
+
+The selector option grids depend on page/list classes in the HTML and `long-options` classes toggled from `car.js` and `area.js`. Removing or renaming these classes can make long labels overflow or reduce scanability even when payload behavior is unchanged.
 
 ## Local Testing
 

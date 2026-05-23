@@ -29,6 +29,23 @@ These keys are part of the bot-facing contract. Do not rename `type`, `city`, or
 6. The submit button is enabled only when city and area are both selected.
 7. On submit, `MiniApp.submitPayload()` sends or displays the payload.
 
+## Option Layout
+
+`area.html` marks the page and option lists with layout classes used by `style.css`:
+
+- `area-page`
+- `city-options`
+- `area-options`
+
+`area.js` calls `updateAreaOptionDensity()` when rendering area options. If any area in the selected city is longer than `longAreaOptionLength` (`18` characters), the area list gets the `long-options` class so the CSS can reduce the grid density.
+
+Current CSS behavior:
+
+- City options use a three-column grid by default.
+- Area options use a three-column grid by default.
+- Area lists with `long-options` use two columns.
+- Narrow viewports reduce option grids to two columns, then one column at the smallest breakpoint.
+
 ## Search And Empty States
 
 Search uses `MiniApp.filterValues()`, which trims, normalizes with `NFKD`, lowercases with Arabic locale, and checks substring matches.
@@ -41,5 +58,6 @@ If loading fails or the JSON shape is invalid, the page shows `loadError` and le
 
 - Changing the object-of-arrays shape of `data/areas.json` breaks `validateAreaData()`.
 - Removing expected DOM IDs in `area.html` breaks `areaElements`.
+- Removing `area-page`, `city-options`, `area-options`, or `long-options` breaks the current option-grid layout behavior.
 - Renaming payload keys breaks bot compatibility.
 - Adding UI-only areas without matching bot-side validation can make the Mini App submit values the bot rejects. [Unknown / Needs human confirmation]

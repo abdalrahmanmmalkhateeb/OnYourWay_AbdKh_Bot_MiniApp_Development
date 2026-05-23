@@ -31,6 +31,22 @@ These keys are part of the bot-facing contract. Do not rename `type`, `brand`, `
 7. The submit button is enabled only when brand, model, and year are all selected.
 8. On submit, `MiniApp.submitPayload()` sends or displays the payload.
 
+## Option Layout
+
+`car.html` marks the page and option lists with layout classes used by `style.css`:
+
+- `car-page`
+- `brand-options`
+- `model-options`
+
+`car.js` calls `updateCarOptionDensity()` after rendering brand/model matches. If any visible option is longer than `longCarOptionLength` (`14` characters), the list gets the `long-options` class so the CSS can reduce the grid density.
+
+Current CSS behavior:
+
+- Default car brand/model options use a three-column grid.
+- Lists with `long-options` use two columns.
+- Narrow viewports reduce option grids to two columns, then one column at the smallest breakpoint.
+
 ## Search And Empty States
 
 Search uses `MiniApp.filterValues()`, which trims, normalizes with `NFKD`, lowercases with Arabic locale, and checks substring matches.
@@ -43,6 +59,7 @@ If loading fails or the JSON shape is invalid, the page shows `loadError` and le
 
 - Changing the object-of-arrays shape of `data/cars.json` breaks `validateCarData()`.
 - Removing expected DOM IDs in `car.html` breaks `carElements`.
+- Removing `car-page`, `brand-options`, `model-options`, or `long-options` breaks the current option-grid layout behavior.
 - Renaming payload keys breaks bot compatibility.
 - Changing or removing `"Other"` changes fallback behavior.
 - Bot-side accepted vehicle values may differ from this file unless the bot allowlist is kept in sync. [Unknown / Needs human confirmation]
