@@ -68,6 +68,57 @@ Example:
 }
 ```
 
+## `ride_selection`
+
+Source page: `ride.html` with `ride.js`.
+
+| Field | Required | Source |
+| --- | --- | --- |
+| `type` | Required | Literal `"ride_selection"` in `ride.js` |
+| `from_city` | Required | Selected origin city from `data/areas.json` |
+| `from_area` | Required | Selected origin area from `data/areas.json` for `from_city` |
+| `to_city` | Required | Selected destination city from `data/areas.json` |
+| `to_area` | Required | Selected destination area from `data/areas.json` for `to_city` |
+| `datetime` | Required | Derived as `YYYY-MM-DD HH:MM` |
+| `date` | Required | Derived as `YYYY-MM-DD` |
+| `time` | Required | Derived as `HH:MM` |
+| `is_recurring` | Required | Boolean from the recurring checkbox; defaults to `false` |
+| `repeat_count` | Required | `null` for normal rides, or a string from `"1"` to `"30"` for recurring rides |
+
+Normal example:
+
+```json
+{
+  "type": "ride_selection",
+  "from_city": "Damascus",
+  "from_area": "Mezzeh",
+  "to_city": "Damascus",
+  "to_area": "Baramkeh",
+  "datetime": "2026-05-23 14:30",
+  "date": "2026-05-23",
+  "time": "14:30",
+  "is_recurring": false,
+  "repeat_count": null
+}
+```
+
+Recurring example:
+
+```json
+{
+  "type": "ride_selection",
+  "from_city": "Damascus",
+  "from_area": "Mezzeh",
+  "to_city": "Damascus",
+  "to_area": "Baramkeh",
+  "datetime": "2026-05-23 14:30",
+  "date": "2026-05-23",
+  "time": "14:30",
+  "is_recurring": true,
+  "repeat_count": "5"
+}
+```
+
 ## Bot-Side Validation Note
 
 The Bot repository must validate payload type, current FSM state, payload shape, backend allowlists, date/time eligibility, user eligibility, and any ride or profile rules that apply. This Mini App repository only documents the current client-side payload construction.
@@ -77,6 +128,7 @@ The Bot repository must validate payload type, current FSM state, payload shape,
 - `car.js`
 - `area.js`
 - `date.js`
+- `ride.js`
 - `shared.js`
 - `data/cars.json`
 - `data/areas.json`

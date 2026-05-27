@@ -9,9 +9,11 @@ flowchart TD
   A["index.html"] --> B["car.html"]
   A --> C["area.html"]
   A --> D["date.html"]
+  A --> P["ride.html"]
   B --> E["Telegram SDK"]
   C --> E
   D --> E
+  P --> E
   E --> F["shared.js"]
   F --> G["MiniApp.initTelegram"]
   G --> H["app.ready"]
@@ -19,16 +21,18 @@ flowchart TD
   B --> J["car.js"]
   C --> K["area.js"]
   D --> L["date.js"]
+  P --> Q["ride.js"]
   J --> M["vehicle_selection"]
   K --> N["area_selection"]
   L --> O["datetime_selection"]
+  Q --> R["ride_selection"]
 ```
 
 ## Notes / Constraints
 
-- `index.html` is a static landing page with links to `car.html`, `area.html`, and `date.html`.
+- `index.html` is a static landing page with links to `car.html`, `area.html`, `date.html`, and `ride.html`.
 - `index.html` does not load the Telegram SDK and does not construct or submit payloads.
-- `car.html`, `area.html`, and `date.html` load Telegram's SDK before deferred local scripts.
+- `car.html`, `area.html`, `date.html`, and `ride.html` load Telegram's SDK before deferred local scripts.
 - Each selector page loads `shared.js` and then its page-specific script.
 - Telegram initialization is centralized through `MiniApp.initTelegram()`.
 
@@ -38,7 +42,9 @@ flowchart TD
 - `car.html`
 - `area.html`
 - `date.html`
+- `ride.html`
 - `shared.js`
 - `car.js`
 - `area.js`
 - `date.js`
+- `ride.js`

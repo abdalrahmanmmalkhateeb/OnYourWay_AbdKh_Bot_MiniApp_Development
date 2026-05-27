@@ -36,3 +36,4 @@ flowchart TD
 - `car.html`
 - `area.html`
 - `date.html`
+- `ride.html`

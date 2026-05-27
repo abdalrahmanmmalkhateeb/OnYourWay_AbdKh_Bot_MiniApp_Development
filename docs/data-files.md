@@ -32,12 +32,18 @@ Current structure:
 }
 ```
 
-`area.js` requires a top-level object where every value is an array. There is no `"Other"` fallback for areas.
+`area.js` and `ride.js` require a top-level object where every value is an array. There is no `"Other"` fallback for areas.
 
 The selected values are submitted as:
 
 ```json
 {"type":"area_selection","city":"City","area":"Area"}
+```
+
+`ride.js` uses the same file for both route endpoints and submits selected values as part of `ride_selection`:
+
+```json
+{"type":"ride_selection","from_city":"City","from_area":"Area","to_city":"City","to_area":"Other Area","datetime":"2026-05-23 14:30","date":"2026-05-23","time":"14:30","is_recurring":false,"repeat_count":null}
 ```
 
 ## Loading Behavior

@@ -14,6 +14,7 @@ The code remains the source of truth. Update these diagrams when a selector page
 - [04-area-selection-page-flow.md](04-area-selection-page-flow.md): area data loading, city/area selection, and `area_selection` payload construction.
 - [05-date-selection-page-flow.md](05-date-selection-page-flow.md): future date/time validation and `datetime_selection` payload construction.
 - [06-payload-contract.md](06-payload-contract.md): current Mini App payload fields, required status, examples, and Bot-side validation boundary.
+- [07-ride-selection-page-flow.md](07-ride-selection-page-flow.md): combined route, date/time, recurrence controls, and `ride_selection` payload construction.
 
 ## Ownership Boundary
 

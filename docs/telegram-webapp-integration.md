@@ -6,7 +6,7 @@
 
 ## SDK Loading
 
-`car.html`, `area.html`, and `date.html` load:
+`car.html`, `area.html`, `date.html`, and `ride.html` load:
 
 ```html
 <script src="https://telegram.org/js/telegram-web-app.js"></script>

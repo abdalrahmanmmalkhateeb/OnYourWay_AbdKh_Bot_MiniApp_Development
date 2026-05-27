@@ -1,4 +1,4 @@
-/* Shared static Mini App UI shell used by index, car, area, and date pages. */
+/* Shared static Mini App UI shell used by index, car, area, date, and ride pages. */
 :root {
   color-scheme: light;
   --background: #f5f7fb;
@@ -85,6 +85,23 @@ body {
   margin-bottom: 18px;
 }
 
+.field-section {
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 18px;
+}
+
+.field-section:first-of-type {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.field-section h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
 label {
   display: block;
   margin-bottom: 8px;
@@ -154,6 +171,30 @@ a:focus-visible {
   color: var(--secondary-text);
 }
 
+input[type="checkbox"] {
+  width: auto;
+  min-height: auto;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.checkbox-field input {
+  flex: 0 0 auto;
+  inline-size: 20px;
+  block-size: 20px;
+}
+
+.repeat-count-group {
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
 .area-page .city-options {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -162,7 +203,16 @@ a:focus-visible {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.ride-page .city-options,
+.ride-page .area-options {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .area-page .area-options.long-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ride-page .area-options.long-options {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -178,6 +228,8 @@ a:focus-visible {
 
 .area-page .city-options .option-button,
 .area-page .area-options .option-button,
+.ride-page .city-options .option-button,
+.ride-page .area-options .option-button,
 .car-page .brand-options .option-button,
 .car-page .model-options .option-button {
   align-items: center;
@@ -322,6 +374,8 @@ a:focus-visible {
   }
 
   .area-page .area-options,
+  .ride-page .city-options,
+  .ride-page .area-options,
   .car-page .brand-options,
   .car-page .model-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -331,6 +385,8 @@ a:focus-visible {
 @media (max-width: 320px) {
   .area-page .city-options,
   .area-page .area-options,
+  .ride-page .city-options,
+  .ride-page .area-options,
   .car-page .brand-options,
   .car-page .model-options {
     grid-template-columns: 1fr;

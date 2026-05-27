@@ -9,8 +9,10 @@
 - `area.js`: loads `data/areas.json`, handles city/area search and selection state, validates the data shape, updates area option density, and submits `area_selection`.
 - `date.html`: markup for a `datetime-local` input, summary, submit button, and browser fallback.
 - `date.js`: validates future date/time selection, derives formatted fields, and submits `datetime_selection`.
+- `ride.html`: markup for combined from/to area selection, date/time selection, recurring toggle, repeat-count input, summary, submit button, load error, route error, browser fallback, and ride option layout hooks.
+- `ride.js`: loads `data/areas.json`, handles from/to city/area search state, validates future date/time selection, validates the client-side repeat-count range, blocks identical endpoints in the UI, and submits `ride_selection`.
 - `shared.js`: shared Telegram WebApp initialization, search filtering, option rendering, summary text, payload submission, and browser fallback.
-- `style.css`: shared mobile-first styles for all current pages, including responsive option grids for car and area selectors.
+- `style.css`: shared mobile-first styles for all current pages, including responsive option grids for car, area, and combined ride selectors.
 
 ## Data Files
 

@@ -8,20 +8,24 @@ These rules protect the current Mini App and bot integration contract.
   - `vehicle_selection`
   - `area_selection`
   - `datetime_selection`
+  - `ride_selection`
 - Payload field names:
   - `brand`, `model`, `year`
   - `city`, `area`
   - `datetime`, `date`, `time`
+  - `from_city`, `from_area`, `to_city`, `to_area`, `is_recurring`, `repeat_count`
 - Static entry filenames:
   - `car.html`
   - `area.html`
   - `date.html`
+  - `ride.html`
 - Data file locations:
   - `data/cars.json`
   - `data/areas.json`
 - Selector layout classes:
   - `car-page`, `brand-options`, `model-options`
   - `area-page`, `city-options`, `area-options`
+  - `ride-page`, `city-options`, `area-options`
   - `long-options`
 - Telegram SDK load order in selector pages.
 

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <title>اختيار المسار والوقت</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell ride-page">
+    <header class="page-header">
+      <a class="back-link" href="index.html">الرئيسية</a>
+      <h1>اختيار المسار والوقت</h1>
+    </header>
+
+    <section class="panel">
+      <p id="loadError" class="notice error" hidden>تعذر تحميل بيانات المناطق.</p>
+      <p id="routeError" class="notice error" hidden>لا يمكن أن تكون منطقة الانطلاق والوصول نفسها.</p>
+
+      <section class="field-section" aria-labelledby="fromHeading">
+        <h2 id="fromHeading">من</h2>
+        <div class="field-group">
+          <label for="fromCitySearch">المدينة</label>
+          <input id="fromCitySearch" type="search" autocomplete="off" placeholder="ابحث عن مدينة الانطلاق">
+          <div id="fromCityList" class="option-list city-options" role="listbox" aria-label="نتائج مدن الانطلاق"></div>
+        </div>
+
+        <div class="field-group">
+          <label for="fromAreaSearch">المنطقة</label>
+          <input id="fromAreaSearch" type="search" autocomplete="off" placeholder="اختر المدينة أولاً" disabled>
+          <div id="fromAreaList" class="option-list area-options" role="listbox" aria-label="نتائج مناطق الانطلاق"></div>
+        </div>
+      </section>
+
+      <section class="field-section" aria-labelledby="toHeading">
+        <h2 id="toHeading">إلى</h2>
+        <div class="field-group">
+          <label for="toCitySearch">المدينة</label>
+          <input id="toCitySearch" type="search" autocomplete="off" placeholder="ابحث عن مدينة الوصول">
+          <div id="toCityList" class="option-list city-options" role="listbox" aria-label="نتائج مدن الوصول"></div>
+        </div>
+
+        <div class="field-group">
+          <label for="toAreaSearch">المنطقة</label>
+          <input id="toAreaSearch" type="search" autocomplete="off" placeholder="اختر المدينة أولاً" disabled>
+          <div id="toAreaList" class="option-list area-options" role="listbox" aria-label="نتائج مناطق الوصول"></div>
+        </div>
+      </section>
+
+      <section class="field-section" aria-labelledby="timeHeading">
+        <h2 id="timeHeading">التوقيت</h2>
+        <div class="field-group">
+          <label for="dateTimeInput">اليوم والوقت</label>
+          <input id="dateTimeInput" type="datetime-local" autocomplete="off">
+          <p class="field-hint">اختر موعداً لاحقاً لإرساله إلى البوت.</p>
+        </div>
+      </section>
+
+      <section class="field-section" aria-labelledby="repeatHeading">
+        <h2 id="repeatHeading">نوع الرحلة</h2>
+        <label class="checkbox-field" for="recurringCheckbox">
+          <input id="recurringCheckbox" type="checkbox">
+          <span>مكرر يومياً</span>
+        </label>
+        <p class="field-hint">العادي هو الافتراضي. عند التفعيل سيتم إنشاء مواعيد يومية بنفس الوقت.</p>
+
+        <div id="repeatCountGroup" class="field-group repeat-count-group" hidden>
+          <label for="repeatCountInput">عدد مرات النشر</label>
+          <input id="repeatCountInput" type="text" inputmode="numeric" pattern="[0-9٠-٩۰-۹]*" autocomplete="off" placeholder="رقم من 1 إلى 30">
+          <p class="field-hint">يشمل العدد أول رحلة.</p>
+        </div>
+      </section>
+
+      <section class="summary" aria-live="polite">
+        <h2>القيم المختارة</h2>
+        <dl>
+          <div>
+            <dt>من</dt>
+            <dd id="summaryFrom">لم يتم الاختيار</dd>
+          </div>
+          <div>
+            <dt>إلى</dt>
+            <dd id="summaryTo">لم يتم الاختيار</dd>
+          </div>
+          <div>
+            <dt>التاريخ والوقت</dt>
+            <dd id="summaryDateTime">لم يتم الاختيار</dd>
+          </div>
+          <div>
+            <dt>النوع</dt>
+            <dd id="summaryRecurring">عادي</dd>
+          </div>
+          <div id="summaryRepeatRow" hidden>
+            <dt>عدد مرات النشر</dt>
+            <dd id="summaryRepeatCount">لم يتم الاختيار</dd>
+          </div>
+        </dl>
+      </section>
+
+      <button id="submitButton" class="button submit-button" type="button" disabled>تأكيد الاختيار</button>
+
+      <section id="browserFallback" class="fallback" hidden>
+        <p id="fallbackStatus">تم تجهيز JSON للاختبار.</p>
+        <pre id="fallbackOutput"></pre>
+        <button id="copyButton" class="button button-secondary" type="button">نسخ JSON</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="shared.js" defer></script>
+  <script src="ride.js" defer></script>
+</body>
+</html>

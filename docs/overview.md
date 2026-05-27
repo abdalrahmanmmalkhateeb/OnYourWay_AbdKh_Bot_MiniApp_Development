@@ -8,6 +8,7 @@ This repository is a static Telegram Mini App surface for selection pages used b
 - `car.html`: car selector page. It loads Telegram's WebApp SDK, `shared.js`, and `car.js`.
 - `area.html`: city/area selector page. It loads Telegram's WebApp SDK, `shared.js`, and `area.js`.
 - `date.html`: date/time selector page. It loads Telegram's WebApp SDK, `shared.js`, and `date.js`.
+- `ride.html`: combined route/date/time selector page. It loads Telegram's WebApp SDK, `shared.js`, and `ride.js`.
 
 ## Shared Flow
 
@@ -28,6 +29,7 @@ Current payload shapes produced by this repo:
 {"type":"vehicle_selection","brand":"...","model":"...","year":"..."}
 {"type":"area_selection","city":"...","area":"..."}
 {"type":"datetime_selection","datetime":"YYYY-MM-DD HH:MM","date":"YYYY-MM-DD","time":"HH:MM"}
+{"type":"ride_selection","from_city":"...","from_area":"...","to_city":"...","to_area":"...","datetime":"YYYY-MM-DD HH:MM","date":"YYYY-MM-DD","time":"HH:MM","is_recurring":false,"repeat_count":null}
 ```
 
 The exact Telegram bot handlers and FSM states consuming these payloads are not present in this repository. [Unknown / Needs human confirmation]
