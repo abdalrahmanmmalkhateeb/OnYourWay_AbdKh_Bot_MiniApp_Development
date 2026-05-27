@@ -178,6 +178,7 @@ function renderEndpointCities(key) {
   const elements = rideElements.endpoints[key];
   const cities = Object.keys(rideState.areas).sort((a, b) => rideAreaCollator.compare(a, b));
   const matches = MiniApp.filterValues(cities, elements.citySearch.value);
+  updateRideOptionDensity(elements.cityList, cities);
 
   MiniApp.renderOptions(
     elements.cityList,
@@ -191,14 +192,14 @@ function renderEndpointCities(key) {
 function renderEndpointAreas(key) {
   const elements = rideElements.endpoints[key];
   if (!rideState[key].city) {
-    updateRideAreaOptionDensity(elements.areaList, []);
+    updateRideOptionDensity(elements.areaList, []);
     elements.areaList.replaceChildren();
     return;
   }
 
   const areas = [...rideState.areas[rideState[key].city]].sort((a, b) => rideAreaCollator.compare(a, b));
   const matches = MiniApp.filterValues(areas, elements.areaSearch.value);
-  updateRideAreaOptionDensity(elements.areaList, areas);
+  updateRideOptionDensity(elements.areaList, areas);
   MiniApp.renderOptions(
     elements.areaList,
     matches,
@@ -208,10 +209,10 @@ function renderEndpointAreas(key) {
   );
 }
 
-function updateRideAreaOptionDensity(areaList, areas) {
-  areaList.classList.toggle(
+function updateRideOptionDensity(optionList, values) {
+  optionList.classList.toggle(
     "long-options",
-    areas.some((area) => [...area].length > longRideOptionLength),
+    values.some((value) => [...value].length > longRideOptionLength),
   );
 }
 
