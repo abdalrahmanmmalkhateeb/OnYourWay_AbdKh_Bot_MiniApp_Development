@@ -33,6 +33,7 @@ flowchart TD
 - `car.js`
 - `area.js`
 - `date.js`
+- `ride.js`
 - `car.html`
 - `area.html`
 - `date.html`

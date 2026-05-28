@@ -43,7 +43,7 @@ The selected values are submitted as:
 `ride.js` uses the same file for both route endpoints and submits selected values as part of `ride_selection`:
 
 ```json
-{"type":"ride_selection","from_city":"City","from_area":"Area","to_city":"City","to_area":"Other Area","datetime":"2026-05-23 14:30","date":"2026-05-23","time":"14:30","is_recurring":false,"repeat_count":null}
+{"type":"ride_selection","from_city":"City","from_area":"Area","to_city":"City","to_area":"Other Area","datetime":"2099-01-01 14:30","date":"2099-01-01","time":"14:30","is_recurring":false,"repeat_count":null}
 ```
 
 ## Loading Behavior

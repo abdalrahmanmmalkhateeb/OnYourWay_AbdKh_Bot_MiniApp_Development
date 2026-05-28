@@ -37,7 +37,20 @@ For recurring rides, `is_recurring` is `true` and `repeat_count` is a string fro
 4. The user selects a future `datetime-local` value.
 5. The recurring checkbox defaults to unchecked.
 6. When recurring is checked, the repeat-count field is shown and must be a client-side integer from 1 to 30.
-7. On submit, `MiniApp.submitPayload()` sends or displays the payload.
+7. Arabic-Indic and Persian digits entered in repeat count are normalized to ASCII digits before validation and payload submission.
+8. On submit, `MiniApp.submitPayload()` sends or displays the payload.
+
+## Option Layout
+
+`ride.html` marks the combined selector with `ride-page`. Its route endpoint lists reuse the shared `city-options` and `area-options` classes.
+
+`ride.js` calls `updateRideOptionDensity()` for both city and area option lists. If any value in the full candidate list for that field is longer than `longRideOptionLength` (`18` characters), the list gets `long-options` so CSS can reduce the grid density.
+
+Current CSS behavior:
+
+- Ride city and area options use a three-column grid by default.
+- Lists with `long-options` use two columns.
+- Narrow viewports reduce ride option grids to two columns, then one column at the smallest breakpoint.
 
 ## Bot Boundary
 

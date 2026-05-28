@@ -41,8 +41,8 @@ Example:
 ```json
 {
   "type": "area_selection",
-  "city": "Damascus",
-  "area": "Mezzeh"
+  "city": "City",
+  "area": "Area"
 }
 ```
 
@@ -62,8 +62,8 @@ Example:
 ```json
 {
   "type": "datetime_selection",
-  "datetime": "2026-05-23 14:30",
-  "date": "2026-05-23",
+  "datetime": "2099-01-01 14:30",
+  "date": "2099-01-01",
   "time": "14:30"
 }
 ```
@@ -83,19 +83,19 @@ Source page: `ride.html` with `ride.js`.
 | `date` | Required | Derived as `YYYY-MM-DD` |
 | `time` | Required | Derived as `HH:MM` |
 | `is_recurring` | Required | Boolean from the recurring checkbox; defaults to `false` |
-| `repeat_count` | Required | `null` for normal rides, or a string from `"1"` to `"30"` for recurring rides |
+| `repeat_count` | Required | `null` for normal rides, or a normalized string from `"1"` to `"30"` for recurring rides |
 
 Normal example:
 
 ```json
 {
   "type": "ride_selection",
-  "from_city": "Damascus",
-  "from_area": "Mezzeh",
-  "to_city": "Damascus",
-  "to_area": "Baramkeh",
-  "datetime": "2026-05-23 14:30",
-  "date": "2026-05-23",
+  "from_city": "City",
+  "from_area": "Area",
+  "to_city": "City",
+  "to_area": "Other Area",
+  "datetime": "2099-01-01 14:30",
+  "date": "2099-01-01",
   "time": "14:30",
   "is_recurring": false,
   "repeat_count": null
@@ -107,12 +107,12 @@ Recurring example:
 ```json
 {
   "type": "ride_selection",
-  "from_city": "Damascus",
-  "from_area": "Mezzeh",
-  "to_city": "Damascus",
-  "to_area": "Baramkeh",
-  "datetime": "2026-05-23 14:30",
-  "date": "2026-05-23",
+  "from_city": "City",
+  "from_area": "Area",
+  "to_city": "City",
+  "to_area": "Other Area",
+  "datetime": "2099-01-01 14:30",
+  "date": "2099-01-01",
   "time": "14:30",
   "is_recurring": true,
   "repeat_count": "5"

@@ -43,7 +43,7 @@ Before publishing data changes, confirm whether the bot consumes mirrored files,
 
 ## Layout Hooks
 
-The selector option grids depend on page/list classes in the HTML and `long-options` classes toggled from `car.js` and `area.js`. Removing or renaming these classes can make long labels overflow or reduce scanability even when payload behavior is unchanged.
+The selector option grids depend on page/list classes in the HTML and `long-options` classes toggled from `car.js`, `area.js`, and `ride.js`. Removing or renaming these classes can make long labels overflow or reduce scanability even when payload behavior is unchanged.
 
 ## Local Testing
 
