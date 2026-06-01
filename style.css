@@ -116,6 +116,31 @@ label {
   font-size: 13px;
 }
 
+.quick-time-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quick-time-button {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--secondary);
+  color: var(--secondary-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 10px;
+}
+
+.quick-time-button:hover {
+  border-color: var(--primary);
+  background: #dfeae7;
+}
+
 input,
 select {
   width: 100%;
@@ -377,6 +402,7 @@ input[type="checkbox"] {
   .area-page .area-options,
   .ride-page .city-options,
   .ride-page .area-options,
+  .quick-time-options,
   .car-page .brand-options,
   .car-page .model-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -388,6 +414,7 @@ input[type="checkbox"] {
   .area-page .area-options,
   .ride-page .city-options,
   .ride-page .area-options,
+  .quick-time-options,
   .car-page .brand-options,
   .car-page .model-options {
     grid-template-columns: 1fr;

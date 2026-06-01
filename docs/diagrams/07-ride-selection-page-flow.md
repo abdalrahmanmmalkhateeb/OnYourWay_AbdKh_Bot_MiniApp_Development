@@ -15,7 +15,7 @@ flowchart TD
   G --> H["User selects from city and area"]
   G --> I["User selects to city and area"]
   C --> J["Set minimum datetime to next minute"]
-  J --> K["User selects datetime-local"]
+  J --> K["User selects datetime-local or quick time button fills it"]
   C --> L["Recurring checkbox defaults unchecked"]
   L --> M{"Recurring checked?"}
   M -->|No| N["repeat_count is null"]
@@ -37,6 +37,7 @@ flowchart TD
 ## Notes / Constraints
 
 - `ride.js` uses the same `data/areas.json` UI allowlist as `area.js`.
+- Quick time buttons fill the same `dateTimeInput` and do not submit automatically.
 - The page blocks identical from/to selections in the UI, but the Bot must still validate that rule.
 - `is_recurring` is a boolean. `repeat_count` is `null` when normal, or a string from `"1"` to `"30"` when recurring.
 - Arabic-Indic and Persian repeat-count digits are normalized before validation and payload submission.

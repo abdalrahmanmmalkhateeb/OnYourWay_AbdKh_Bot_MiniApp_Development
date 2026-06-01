@@ -34,11 +34,13 @@ For recurring rides, `is_recurring` is `true` and `repeat_count` is a string fro
 1. `ride.js` loads `data/areas.json` with `cache: "no-store"`.
 2. The user selects from-city/from-area and to-city/to-area from the same allowlist.
 3. The page blocks submit when the two endpoints are identical.
-4. The user selects a future `datetime-local` value.
+4. The user selects a future `datetime-local` value manually or with a quick time button.
 5. The recurring checkbox defaults to unchecked.
 6. When recurring is checked, the repeat-count field is shown and must be a client-side integer from 1 to 30.
 7. Arabic-Indic and Persian digits entered in repeat count are normalized to ASCII digits before validation and payload submission.
 8. On submit, `MiniApp.submitPayload()` sends or displays the payload.
+
+Quick time buttons only fill the existing `dateTimeInput`; they do not submit automatically and they do not add payload fields.
 
 ## Option Layout
 

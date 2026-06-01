@@ -9,7 +9,7 @@ flowchart TD
   A["date.html loads"] --> B["MiniApp.initTelegram"]
   A --> C["getNextMinuteDate"]
   C --> D["set input min"]
-  D --> E["user changes input"]
+  D --> E["user changes input or quick time button fills input"]
   E --> F["parse datetime-local"]
   F --> G{"valid local date"}
   G -->|No| H["clear date state"]
@@ -29,6 +29,8 @@ flowchart TD
 ## Notes / Constraints
 
 - `dateTimeInput` uses `type="datetime-local"`.
+- Quick time buttons fill the same `dateTimeInput` and then run the same validation/update path as manual input.
+- Quick time buttons do not submit automatically.
 - `minimumDateTime` is computed once at page load as the next local minute.
 - The input `min` is set from that computed minimum.
 - `parseDateTimeLocalValue()` accepts only `YYYY-MM-DDTHH:MM` and rejects rollover dates by comparing parsed parts.

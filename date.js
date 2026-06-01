@@ -9,6 +9,7 @@ const dateState = {
 
 const dateElements = {
   dateTimeInput: document.getElementById("dateTimeInput"),
+  quickTimeButtons: document.querySelectorAll(".quick-time-button"),
   summaryDateTime: document.getElementById("summaryDateTime"),
   submitButton: document.getElementById("submitButton"),
   fallback: {
@@ -27,6 +28,15 @@ updateDateSummary();
 
 dateElements.dateTimeInput.addEventListener("input", () => {
   setSelectedDateTime(dateElements.dateTimeInput.value);
+});
+
+dateElements.quickTimeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const minutes = Number(button.dataset.minutes);
+    const selectedValue = toDateTimeLocalValue(getQuickDateTime(minutes));
+    dateElements.dateTimeInput.value = selectedValue;
+    setSelectedDateTime(selectedValue);
+  });
 });
 
 dateElements.submitButton.addEventListener("click", () => {
@@ -94,6 +104,12 @@ function getNextMinuteDate() {
   now.setSeconds(0, 0);
   now.setMinutes(now.getMinutes() + 1);
   return now;
+}
+
+function getQuickDateTime(minutesFromNow) {
+  const selected = getNextMinuteDate();
+  selected.setMinutes(selected.getMinutes() + minutesFromNow);
+  return selected;
 }
 
 function toDateTimeLocalValue(date) {

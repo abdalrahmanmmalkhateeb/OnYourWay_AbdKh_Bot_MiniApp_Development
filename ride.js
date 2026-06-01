@@ -41,6 +41,7 @@ const rideElements = {
   loadError: document.getElementById("loadError"),
   routeError: document.getElementById("routeError"),
   dateTimeInput: document.getElementById("dateTimeInput"),
+  quickTimeButtons: document.querySelectorAll(".quick-time-button"),
   recurringCheckbox: document.getElementById("recurringCheckbox"),
   repeatCountGroup: document.getElementById("repeatCountGroup"),
   repeatCountInput: document.getElementById("repeatCountInput"),
@@ -84,6 +85,15 @@ updateRideSummary();
 
 rideElements.dateTimeInput.addEventListener("input", () => {
   setSelectedRideDateTime(rideElements.dateTimeInput.value);
+});
+
+rideElements.quickTimeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const minutes = Number(button.dataset.minutes);
+    const selectedValue = toDateTimeLocalValue(getQuickRideDateTime(minutes));
+    rideElements.dateTimeInput.value = selectedValue;
+    setSelectedRideDateTime(selectedValue);
+  });
 });
 
 rideElements.recurringCheckbox.addEventListener("change", () => {
@@ -361,6 +371,12 @@ function getNextMinuteDate() {
   now.setSeconds(0, 0);
   now.setMinutes(now.getMinutes() + 1);
   return now;
+}
+
+function getQuickRideDateTime(minutesFromNow) {
+  const selected = getNextMinuteDate();
+  selected.setMinutes(selected.getMinutes() + minutesFromNow);
+  return selected;
 }
 
 function toDateTimeLocalValue(date) {
